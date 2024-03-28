@@ -7,6 +7,7 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(self.add("8"), 8)
         self.assertEqual(self.add(" 8912 "), 8912)
         self.assertEqual(self.add("20, 30"), 50)
+        self.assertEqual(self.add("20, 30, 40, 10"), 100)
         
     def add(self, numbers: str) -> int:
         if len(numbers) == 0:
