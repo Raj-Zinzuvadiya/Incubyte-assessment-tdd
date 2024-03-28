@@ -25,6 +25,8 @@ class TestCalculator(unittest.TestCase):
         if len(numbers) > 0 and numbers[-1] == '\n':
             raise ValueError("Invalid Input")
         
+        neg_value_list = []
+        
         if numbers[:2] == "//":
             number_list = numbers[3:].split(numbers[2])
         else:
@@ -35,9 +37,17 @@ class TestCalculator(unittest.TestCase):
         for number in number_list:
             if len(number) == 0:
                 continue
+            num = int(number)
             
-            sum += int(number)
+            if num < 0:
+                neg_value_list.append(str(num))
+                continue
             
+            sum += num
+            
+        if len(neg_value_list) != 0:
+            neg_list = ', '.join(neg_value_list) 
+            raise ValueError(f"negative numbers not allowed {neg_list}")
         return sum
         
 
