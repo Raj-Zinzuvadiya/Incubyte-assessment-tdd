@@ -13,7 +13,7 @@ class TestCalculator(unittest.TestCase):
             self.add("20, \n")
         self.assertEqual(str(cm.exception), "Invalid Input")
         
-        self.assertEqual(self.add("//;\n3;5"), 8)
+        self.assertEqual(self.add("//;\n30;5"), 35)
         
         
     def add(self, numbers: str) -> int:
@@ -22,9 +22,12 @@ class TestCalculator(unittest.TestCase):
         if len(numbers) > 0 and numbers[-1] == '\n':
             raise ValueError("Invalid Input")
         
-        numbers = numbers.replace("\n", ",") 
+        if numbers[:2] == "//":
+            number_list = numbers[3:].split(numbers[2])
+        else:
+            numbers = numbers.replace("\n", ",") 
         
-        number_list = numbers.split(",")
+            number_list = numbers.split(",")
         
         for number in number_list:
             if len(number) == 0:
