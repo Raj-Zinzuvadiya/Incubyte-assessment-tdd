@@ -9,6 +9,9 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(self.add("20, 30"), 50)
         self.assertEqual(self.add("20, 30, 40, 10"), 100)
         self.assertEqual(self.add("20 \n\n30, 50"), 100)
+        with self.assertRaises(ValueError) as cm:
+            self.add("20, \n")
+        self.assertEqual(str(cm.exception), "Invalid Input")
         
     def add(self, numbers: str) -> int:
         sum = 0
