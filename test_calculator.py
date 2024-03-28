@@ -13,6 +13,9 @@ class TestCalculator(unittest.TestCase):
             self.add("20, \n")
         self.assertEqual(str(cm.exception), "Invalid Input")
         
+        self.assertEqual(self.add("//;\n3;5"), 8)
+        
+        
     def add(self, numbers: str) -> int:
         sum = 0
         
