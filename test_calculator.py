@@ -10,12 +10,12 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(self.add("20, 30, 40, 10"), 100)
         
     def add(self, numbers: str) -> int:
-        if len(numbers) == 0:
-            return 0
         sum = 0
         number_list = numbers.split(",")
         
         for number in number_list:
+            if len(number) == 0:
+                continue
             sum += int(number)
             
         return sum
