@@ -7,7 +7,9 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(self.add("8"), 8)
         
     def add(self, numbers: str) -> int:
-        return 0
+        if len(numbers) == 0:
+            return 0
+        return int(numbers)
         
 
 if __name__ == "__main__":
