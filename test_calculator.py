@@ -8,15 +8,19 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(self.add(" 8912 "), 8912)
         self.assertEqual(self.add("20, 30"), 50)
         self.assertEqual(self.add("20, 30, 40, 10"), 100)
-        self.assertEqual(self.add("20 \n30, 50"), 100)
+        self.assertEqual(self.add("20 \n\n30, 50"), 100)
         
     def add(self, numbers: str) -> int:
         sum = 0
+        
+        numbers = numbers.replace("\n", ",") 
+        
         number_list = numbers.split(",")
         
         for number in number_list:
             if len(number) == 0:
                 continue
+            
             sum += int(number)
             
         return sum
