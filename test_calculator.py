@@ -15,6 +15,9 @@ class TestCalculator(unittest.TestCase):
         
         self.assertEqual(self.add("//;\n30;5"), 35)
         
+        with self.assertRaisesRegex(ValueError, "negative numbers not allowed .*") as cm:
+            self.add("//;\n-30;-5")
+        
         
     def add(self, numbers: str) -> int:
         sum = 0
