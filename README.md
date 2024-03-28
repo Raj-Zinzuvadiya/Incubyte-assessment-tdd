@@ -1,4 +1,4 @@
-# Incubyte-assessment-tdd
+# Incubyte-assessment-TDD
 Incubyte assessment
 
 This Repo container code for "String Calculator" using Test Driven Development.
