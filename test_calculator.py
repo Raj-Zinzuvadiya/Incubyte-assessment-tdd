@@ -12,12 +12,13 @@ class TestCalculator(unittest.TestCase):
     def add(self, numbers: str) -> int:
         if len(numbers) == 0:
             return 0
-        
+        sum = 0
         number_list = numbers.split(",")
-        if len(number_list) == 2:
-            return int(number_list[0]) + int(number_list[1]) 
         
-        return int(number_list[0])
+        for number in number_list:
+            sum += int(number)
+            
+        return sum
         
 
 if __name__ == "__main__":
