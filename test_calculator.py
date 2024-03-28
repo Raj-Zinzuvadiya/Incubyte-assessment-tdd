@@ -16,6 +16,9 @@ class TestCalculator(unittest.TestCase):
     def add(self, numbers: str) -> int:
         sum = 0
         
+        if len(numbers) > 0 and numbers[-1] == '\n':
+            raise ValueError("Invalid Input")
+        
         numbers = numbers.replace("\n", ",") 
         
         number_list = numbers.split(",")
